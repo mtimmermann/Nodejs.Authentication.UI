@@ -1,8 +1,8 @@
 {
-    "name": "nodejs.authentication.app",
+    "name": "nodejs.authentication.ui",
     "author": "Mark Timmermann",
     "description": "",
-    "version": "",
+    "version": "0.0.1",
     "devDependencies": {
         "grunt": "~0.4.2",
         "grunt-contrib-copy": "~0.4.1",
@@ -19,6 +19,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/mtimmermann/Nodejs.Authentication.App.git"
+        "url": "https://github.com/mtimmermann/Nodejs.Authentication.UI.git"
     }
 }
