@@ -1,0 +1,36 @@
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <legend>
+            Contact Details
+            <button data-contact-details="edit" type="button" class="active btn btn-sm btn-primary"><i class="glyphicon glyphicon-edit "></i> Edit</button>
+        </legend>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12 column ">
+        <div class="inline-block">
+            <p>{{ firstName }} {{ lastName }}</p>
+            <p>
+                {{ phone1 }}
+                <% if (phone1_note) { %>
+                {{ phone1_note }}
+                <% } %>
+            </p>
+            <p>
+                {{ email1 }}
+                <% if (email1_note) { %>
+                {{ email1_note }}
+                <% } %>
+            </p>
+            <p>
+                {{ city }} {{ region }}, {{ country }}
+            </p>
+            <p>
+                {{ description }}
+            </p>
+        </div>
+        <div class="well inline-block contact-image">
+            <img id="picture" src="{{ picture === null ? '/pics/avatar_default.jpg' : '/pics/' + picture }}"/>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+<<<<<<< HEAD
+    "browser": true,
+    "es3": true,
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "single",
+    "regexp": true,
+    "undef": true,
+    "trailing": true,
+    "smarttabs": true,
+    "jquery": true
+}
+=======
+  "curly": true,
+  "eqnull": false,
+  "quotmark": false,
+  "undef": true,
+  "globals": {
+    "jQuery": true,
+    "Backbone": true,
+    "_": true,
+    "moment": true
+  }
+}
+>>>>>>> master
