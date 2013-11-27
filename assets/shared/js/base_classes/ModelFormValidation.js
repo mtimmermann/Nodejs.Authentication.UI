@@ -29,7 +29,7 @@ BaseClasses.ModelFormValidation = Backbone.Model.extend({
 
     isModelValid: function() {
         this._setCurrentValidation(false, '');
-        var validation = this.isValid();
+        var validation = this.isValid(true) || false;
         return validation;
     },
 
