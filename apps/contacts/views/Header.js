@@ -35,8 +35,9 @@ define(function(require, exports, module) {
                 type: 'get',
                 dataType: 'json',
                 url: '/services/v1/logout'
+            }).done(function(/*data, textStatus, jqXHR*/) {
+                window.location.replace('/login');
             });
-            window.location.replace('/login');
         }
     });
 

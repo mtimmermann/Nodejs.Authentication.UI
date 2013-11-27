@@ -53,6 +53,7 @@ define(function(require, exports, module) {
         },
 
         contactDetails: function(contactID) {
+            var self = this;
             this._headerView.setActiveLink('none');
 
             // Try finding model in current paged collection, otherwise fetch the model.
@@ -65,12 +66,13 @@ define(function(require, exports, module) {
                 }
             }
             if (deferred.state() != 'resolved') {
-                var tmp = '';
                 contact = new Contact({'id': contactID});
                 contact.fetch().done(function() {
                     deferred.resolve();
                 }).fail(function(jqXHR/*, textStatus, errorThrown*/) {
-                    if (jqXHR.status == 404) {
+                    if (jqXHR.status === 403) {
+                        self._onLogout();
+                    } else if (jqXHR.status == 404) {
                         // TODO: 404 - Bootstrap alert message or view
                     } else {
                         // TODO: General server - Bootstrap alert message or view
@@ -83,13 +85,16 @@ define(function(require, exports, module) {
         },
 
         contactEdit: function(contactID) {
+            var self = this;
             this._headerView.setActiveLink('none');
             var contact = new Contact({'id': contactID});
             var deferred = contact.fetch();
             $.when(deferred.promise()).done(function () {
                 App.mainRegion.show(new ContactEditView({model: contact}));
             }).fail(function(jqXHR/*, textStatus, errorThrown*/) {
-                if (jqXHR.status == 404) {
+                if (jqXHR.status === 403) {
+                    self._onLogout();
+                } else if (jqXHR.status === 404) {
                     // TODO: 404 - Bootstrap alert message or view
                 } else {
                     // TODO: General server - Bootstrap alert message or view
