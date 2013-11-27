@@ -9,7 +9,9 @@ define(function(require, exports, module) {
 
         parse: function(data) {
             // Temporary, must fix service and ensure id is returned
-            data.id = data._id;
+            if (!data.id && data._id) {
+                data.id = data._id;
+            }
             return data;
         },
 
