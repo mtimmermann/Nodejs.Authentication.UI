@@ -42,6 +42,9 @@ define(function(require, exports, module) {
         validate: function () {
             var self = this;
 
+            // Hide all form alerts
+            this.$('div.alert').slideUp();
+
             //var check = this.model.isValid();
             var check = this.model.isModelValid();
 
@@ -55,6 +58,7 @@ define(function(require, exports, module) {
         },
 
         login: function() {
+            var self = this;
             $.ajax({
                 type: 'post',
                 contentType: 'application/json',
@@ -65,15 +69,21 @@ define(function(require, exports, module) {
                 if (response.IsSuccess) {
                     window.location.replace('/');
                 } else {
-                    // TODO: Message: "This site is currently having technical issues. Please try again later."
+                    self._showAlert(self.$('[data-login-form-alert="tech-problems"]'));
                 }
             }).error(function (jqXHR, textStatus, errorThrown) {
-                if (jqXHR.status) {
-                    // TODO: Message: "Authentication failed, please check your username and password."
+                if (jqXHR.status === 401) {
+                    self._showAlert(self.$('[data-login-form-alert="auth-failed"]'));
                 } else {
-                    // TODO: Message: "This site is currently having technical issues. Please try again later."
+                    self._showAlert(self.$('[data-login-form-alert="tech-problems"]'));
                 }
             });
+        },
+
+        _showAlert: function(alertDiv) {
+            alertDiv.hide();
+            alertDiv.removeClass('hide');
+            alertDiv.slideDown();
         }
 
     });
