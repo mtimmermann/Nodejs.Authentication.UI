@@ -42,6 +42,9 @@ define(function(require, exports, module) {
         validate: function () {
             var self = this;
 
+            // Hide all form alerts
+            this.$('div.alert').slideUp();
+
             //var check = this.model.isValid();
             var check = this.model.isModelValid();
 
@@ -61,6 +64,8 @@ define(function(require, exports, module) {
         },
 
         register: function() {
+            var self = this;
+
             var data = _(this.model.attributes).clone();
             delete data.confirmPassword;
             $.ajax({
@@ -69,19 +74,26 @@ define(function(require, exports, module) {
                 dataType: 'json',
                 data: JSON.stringify(data),
                 url: '/services/v1/register'
-            }).success(function(response/*, textStatus, jqXHR*/) {
+            }).done(function(response/*, textStatus, jqXHR*/) {
                 if (response.IsSuccess) {
                     window.location.replace('/');
                 } else {
-                    // TODO: Message: "This site is currently having technical issues. Please try again later."
+                    self._showAlert(self.$('[data-registration-form-alert="tech-problems"]'));
                 }
-            }).error(function (jqXHR/*, textStatus, errorThrown*/) {
-                if (jqXHR.status) {
-                    // TODO: Message: "Authentication failed, please check your username and password."
+            }).fail(function (jqXHR/*, textStatus, errorThrown*/) {
+                if (jqXHR.status === 409 && jqXHR.responseJSON &&
+                    jqXHR.responseJSON.message && jqXHR.responseJSON.message === 'User exists') {
+                        self._showAlert(self.$('[data-registration-form-alert="user-exists"]'));
                 } else {
-                    // TODO: Message: "This site is currently having technical issues. Please try again later."
+                    self._showAlert(self.$('[data-registration-form-alert="tech-problems"]'));
                 }
             });
+        },
+
+        _showAlert: function(alertDiv) {
+            alertDiv.hide();
+            alertDiv.removeClass('hide');
+            alertDiv.slideDown();
         }
 
     });
