@@ -1,5 +1,5 @@
 {
-    "name": "contacts.marionette.ui",
+    "name": "nodejs.authentication.app",
     "author": "Mark Timmermann",
     "description": "",
     "version": "",
@@ -19,6 +19,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/mtimmermann/Contacts.Marionette.App.git"
+        "url": "https://github.com/mtimmermann/Nodejs.Authentication.App.git"
     }
 }
