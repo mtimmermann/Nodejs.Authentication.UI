@@ -22,6 +22,7 @@ define(function(require, exports, module) {
             // Prevent UI shifting on contact paging operations
             App.Notifications.on('Paginator.onPrePage', this._onPrePage, this);
             App.Notifications.on('Paginator.onDonePage', this._onDonePage, this);
+            App.Notifications.on('Logout', this._onLogout, this);
         },
 
         // AppRouter appRoutes
@@ -125,6 +126,10 @@ define(function(require, exports, module) {
                 }, 500);
             });
         },
+
+        _onLogout: function(/*message*/) {
+            window.location.replace('/login');
+        }
     });
 
 });

@@ -68,14 +68,14 @@ define(function(require, exports, module) {
                 contentType: 'application/json',
                 dataType: 'json',
                 data: JSON.stringify(data),
-                url: '/services/v1/signup'
+                url: '/services/v1/register'
             }).success(function(response/*, textStatus, jqXHR*/) {
                 if (response.IsSuccess) {
                     window.location.replace('/');
                 } else {
                     // TODO: Message: "This site is currently having technical issues. Please try again later."
                 }
-            }).error(function (jqXHR, textStatus, errorThrown) {
+            }).error(function (jqXHR/*, textStatus, errorThrown*/) {
                 if (jqXHR.status) {
                     // TODO: Message: "Authentication failed, please check your username and password."
                 } else {

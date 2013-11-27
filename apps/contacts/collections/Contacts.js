@@ -70,7 +70,13 @@ define(function(require, exports, module) {
 
 		getCollection: function() {
             // Ensure Backbone pagination origModels is defined, set reset to true
-            this.deferred = this.fetch({reset: true});
+            this.deferred = this.fetch({reset: true})
+                .error(function(jqXHR/*, textStatus, errorThrown*/) {
+                    if (jqXHR.status === 403) {
+                        window.location.replace('/login');
+                        App.Notifications.trigger('Logout', null);
+                    }
+                });
 		},
 
         parse: function(response) {
