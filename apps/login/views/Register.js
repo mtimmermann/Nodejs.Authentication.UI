@@ -49,32 +49,40 @@ define(function(require, exports, module) {
                 return false; // Prevent form submit
             }
 
-            this.login();
+            if (this.model.get('password') === this.model.get('confirmPassword')) {
+                this.register();
+            } else {
+                var formGroup = this.$('#confirmPassword').parent('.form-group');
+                formGroup.addClass('error');
+                formGroup.find('.help-inline').html('Confirm password and password fields do not match');
+            }
 
             return false; // Prevent form submit
-        }
+        },
 
-        // login: function() {
-        //     $.ajax({
-        //         type: 'post',
-        //         contentType: 'application/json',
-        //         dataType: 'json',
-        //         data: JSON.stringify(this.model.attributes),
-        //         url: '/services/v1/login'
-        //     }).success(function(response/*, textStatus, jqXHR*/) {
-        //         if (response.IsSuccess) {
-        //             window.location.replace('/');
-        //         } else {
-        //             // TODO: Message: "This site is currently having technical issues. Please try again later."
-        //         }
-        //     }).error(function (jqXHR, textStatus, errorThrown) {
-        //         if (jqXHR.status) {
-        //             // TODO: Message: "Authentication failed, please check your username and password."
-        //         } else {
-        //             // TODO: Message: "This site is currently having technical issues. Please try again later."
-        //         }
-        //     });
-        // }
+        register: function() {
+            var data = _(this.model.attributes).clone();
+            delete data.confirmPassword;
+            $.ajax({
+                type: 'post',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(data),
+                url: '/services/v1/signup'
+            }).success(function(response/*, textStatus, jqXHR*/) {
+                if (response.IsSuccess) {
+                    window.location.replace('/');
+                } else {
+                    // TODO: Message: "This site is currently having technical issues. Please try again later."
+                }
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status) {
+                    // TODO: Message: "Authentication failed, please check your username and password."
+                } else {
+                    // TODO: Message: "This site is currently having technical issues. Please try again later."
+                }
+            });
+        }
 
     });
 

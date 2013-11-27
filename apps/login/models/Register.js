@@ -33,6 +33,10 @@ define(function(require, exports, module) {
             password: {
                 required: true,
                 msg: 'Password is required'
+            },
+            confirmPassword: {
+                required: true,
+                msg: ' '
             }
         }
 
