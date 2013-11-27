@@ -9,7 +9,8 @@ define(function(require, exports, module) {
 
         defaults: {
             email: '',
-            username: '',
+            firstName: '',
+            lastName: '',
             password: '',
             confirmPassword: ''
         },
@@ -26,9 +27,13 @@ define(function(require, exports, module) {
                     msg: 'Please enter a valid email'
                 }
             ],
-            username: {
+            firstName: {
                 required: true,
-                msg: 'Username is required'
+                msg: 'First Name is required'
+            },
+            lastName: {
+                required: true,
+                msg: 'Last Name is required'
             },
             password: {
                 required: true,
