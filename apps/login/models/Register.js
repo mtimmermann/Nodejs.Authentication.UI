@@ -1,19 +1,31 @@
 define(function(require, exports, module) {
 
-    // Login class - model
+    // Register class - model
     return BaseClasses.ModelFormValidation.extend({
 
-        //urlRoot: 'services/v1/login',
+        //urlRoot: 'services/v1/signup',
 
         // initialize: function(attributes, options) { },
 
         defaults: {
+            email: '',
             username: '',
-            password: ''
+            password: '',
+            confirmPassword: ''
         },
 
         // http://www.verious.com/code/addyosmani/backbone.validation/
         validation: {
+            email: [
+                {
+                    required: true,
+                    msg: 'Please enter an email address'
+                },
+                {
+                    pattern: 'email',
+                    msg: 'Please enter a valid email'
+                }
+            ],
             username: {
                 required: true,
                 msg: 'Username is required'
