@@ -1,5 +1,15 @@
 <div class="row clearfix">
     <div class="col-md-12 column">
-        <h5><strong>{{ lastName }}, {{ firstName }}</strong></h5>
+        <a href="#contacts/{{ id }}" class="thumbnail plain">
+            <img src="{{ picture === null ? App.settings.defaultAvatarPath : App.settings.picsUrl() + picture }}" alt="{{ firstName }}">
+            <h5><strong>{{ lastName }}, {{ firstName }}</strong></h5>
+            <p>
+                <% if (phone1) { %>
+                {{ phone1 }} {{ phone1_note }} <br />
+                <% } %>
+                {{ email1 }}
+            </p>
+            <p><span class="glyphicon glyphicon-globe"></span> {{ city }} {{ region }}, {{ country }}</p>
+        </a>
     </div>
 </div>
