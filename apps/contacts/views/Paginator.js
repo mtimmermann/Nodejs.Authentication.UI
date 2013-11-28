@@ -5,6 +5,7 @@ define(function(require, exports, module) {
     // Paginator View
     return Backbone.Marionette.ItemView.extend({
 
+        className: 'pagination-wrapper',
         template: PaginatorTemplate,
 
         events: {
