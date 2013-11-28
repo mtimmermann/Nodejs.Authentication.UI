@@ -3,7 +3,8 @@
     <div class="col-md-8 column thumbnail-container">
         <a href="#contacts/{{ id }}" class="thumbnail plain">
             <div class="inline-block left-region">
-                <img src="{{ picture === null ? App.settings.defaultAvatarPath : App.settings.picsUrl() + picture }}" alt="{{ firstName }}">
+                <img src="{{ picture === null ? App.settings.defaultAvatarPath : App.settings.picsUrl() + picture }}" alt="{{ firstName }}" class="hidden-xs">
+                <img src="{{ picture === null ? App.settings.defaultAvatarPath : App.settings.picsUrl() + picture }}" alt="{{ firstName }}" class="visible-xs small">
             </div>
             <div class="inline-block right-region">
                 <h5><strong>{{ lastName }}, {{ firstName }}</strong></h5>
