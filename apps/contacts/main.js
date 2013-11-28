@@ -14,6 +14,7 @@ define(function(require, exports, module) {
     App.appRouter = new AppRouter({
         controller: new AppController()
     });
+    window.App = App;
 
     $(function() {
         window.App = App;

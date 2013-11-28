@@ -3,7 +3,7 @@ define(function(require, exports, module) {
     // Contact class - model
     return BaseClasses.ModelFormValidation.extend({
 
-        urlRoot: App.settings.baseServiceUrl +'contacts',
+        urlRoot: AppSettings.baseServiceUrl +'contacts',
 
         // initialize: function(attributes, options) { },
 

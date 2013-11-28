@@ -3,7 +3,7 @@ define(function(require, exports, module) {
     // Register class - model
     return BaseClasses.ModelFormValidation.extend({
 
-        //urlRoot: App.settings.baseServiceUrl +'register',
+        //urlRoot: AppSettings.baseServiceUrl +'register',
 
         // initialize: function(attributes, options) { },
 

@@ -16,7 +16,7 @@ define(function(require, exports, module) {
         paginator_core: {
             type: 'GET',
             dataType: 'json',
-            url: App.settings.baseServiceUrl +'contacts'
+            url: AppSettings.baseServiceUrl +'contacts'
         },
 
         paginator_ui: {
