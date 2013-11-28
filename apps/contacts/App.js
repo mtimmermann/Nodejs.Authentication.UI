@@ -20,11 +20,10 @@ define(function(require, exports, module) {
 
     // App settings, combine global and local settings.
     App.settings = _.extend(AppSettings, LocalAppSettings);
-    //_.extend(AppSettings, LocalAppSettings);
 
     // If true app is used w/ multiple users and uploaded
     // pics need to be stored in separated sub-directories.
-    if (AppSettings.getUserInfo) {
+    if (App.settings.getUserInfo) {
         $.ajax({
             url: App.settings.baseServiceUrl + 'user',
             type: 'GET',
