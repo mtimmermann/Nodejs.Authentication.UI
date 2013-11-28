@@ -13,10 +13,10 @@ define(function(require, exports, module) {
             'change': 'change',
     		'click [data-contact-edit-button="save"]': 'validate',
     		'click [data-contact-edit-button="delete"]': 'delete',
-            'drop #edit-contact-picture': 'dropHandler',
-            'dragover #picture': 'dragHandler', // Must call event.preventDefault() for drop event listener to work
-            'drop div.well'    : 'dropHandler',
-            'dragover div.well': 'dragHandler' // Must call event.preventDefault() for drop event listener to work
+            'drop #edit-contact-picture':     'dropHandler',
+            'dragover #edit-contact-picture': 'dragHandler', // Must call event.preventDefault() for drop event listener to work
+            'drop div.well':                  'dropHandler',
+            'dragover div.well':              'dragHandler' // Must call event.preventDefault() for drop event listener to work
     	},
 
         pictureFile: null,
@@ -126,7 +126,7 @@ define(function(require, exports, module) {
             // Read the image file from the local file system and display it in the img tag
             var reader = new FileReader();
             reader.onloadend = function () {
-                $('#picture').attr('src', reader.result);
+                $('#edit-contact-picture').attr('src', reader.result);
             };
             reader.readAsDataURL(this.pictureFile);
         },
