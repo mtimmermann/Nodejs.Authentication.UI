@@ -73,7 +73,7 @@ define(function(require, exports, module) {
                 contentType: 'application/json',
                 dataType: 'json',
                 data: JSON.stringify(data),
-                url: '/services/v1/register'
+                url: App.settings.baseServiceUrl +'register'
             }).done(function(response/*, textStatus, jqXHR*/) {
                 if (response.IsSuccess) {
                     window.location.replace('/');

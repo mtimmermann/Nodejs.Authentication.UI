@@ -30,7 +30,7 @@
             </p>
         </div>
         <div class="well inline-block contact-image">
-            <img id="picture" src="{{ picture === null ? '/pics/avatar_default.jpg' : '/pics/' + picture }}"/>
+            <img src="{{ picture === null ? App.settings.defaultAvatarPath : App.settings.picsUrl() + picture }}" alt="{{ firstName }}">
         </div>
     </div>
 </div>

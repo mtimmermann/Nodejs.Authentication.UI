@@ -13,10 +13,10 @@ define(function(require, exports, module) {
             'change': 'change',
     		'click [data-contact-edit-button="save"]': 'validate',
     		'click [data-contact-edit-button="delete"]': 'delete',
-            'drop #picture'     : 'dropHandler',
-            'dragover #picture' : 'dragHandler', // Must call event.preventDefault() for drop event listener to work
-            'drop div.well'     : 'dropHandler',
-            'dragover div.well' : 'dragHandler' // Must call event.preventDefault() for drop event listener to work
+            'drop #edit-contact-picture': 'dropHandler',
+            'dragover #picture': 'dragHandler', // Must call event.preventDefault() for drop event listener to work
+            'drop div.well'    : 'dropHandler',
+            'dragover div.well': 'dragHandler' // Must call event.preventDefault() for drop event listener to work
     	},
 
         pictureFile: null,
@@ -136,7 +136,7 @@ define(function(require, exports, module) {
             var data = new FormData();
             data.append('file', file);
             $.ajax({
-                url: 'services/v1/uploader',
+                url: App.settings.baseServiceUrl + 'uploader',
                 type: 'POST',
                 data: data,
                 processData: false,

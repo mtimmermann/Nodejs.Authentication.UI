@@ -13,76 +13,70 @@
             <div data-contact-edit-alert="error-delete" class="alert alert-danger hide">An error occurred while trying to delete this contact.</div>
             <div data-contact-edit="form-elements">
                 <div class="inline-block">
-                    <!--<form role="form">-->
-                        <!--<div class="form-group">
-                            <label for="contactId">Id</label>
-                            <input id="contactId" name="id" class="form-control" type="text" value="{{ id === null ? '' : id }}" disabled/>
-                        </div>-->
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" class="form-control" value="{{ firstName }}"/>
-                            <span class="help-inline"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" class="form-control" value="{{ lastName }}"/>
-                            <span class="help-inline"></span>
-                        </div>
-                        <div>
-                            <div class="inline-block">
-                                <div class="form-group medium">
-                                    <label for="phone1">Phone 1</label>
-                                    <input type="text" id="phone1" name="phone1" class="form-control" value="{{ phone1 }}"/>
-                                </div>
-                            </div>
-                            <div class="inline-block">
-                                <div class="form-group">
-                                    <label for="phone1_note">Note</label>
-                                    <input type="text" id="phone1_note" name="phone1_note" class="form-control" value="{{ phone1_note }}"/>
-                                </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" value="{{ firstName }}"/>
+                        <span class="help-inline"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" value="{{ lastName }}"/>
+                        <span class="help-inline"></span>
+                    </div>
+                    <div>
+                        <div class="inline-block">
+                            <div class="form-group medium">
+                                <label for="phone1">Phone 1</label>
+                                <input type="text" id="phone1" name="phone1" class="form-control" value="{{ phone1 }}"/>
                             </div>
                         </div>
-                        <div>
-                            <div class="inline-block">
-                                <div class="form-group medium">
-                                    <label for="email1">Email</label>
-                                    <input type="text" id="email1" name="email1" class="form-control" value="{{ email1 }}"/>
-                                    <span class="help-inline"></span>
-                                </div>
+                        <div class="inline-block">
+                            <div class="form-group">
+                                <label for="phone1_note">Note</label>
+                                <input type="text" id="phone1_note" name="phone1_note" class="form-control" value="{{ phone1_note }}"/>
                             </div>
-                            <div class="inline-block">
-                                <div class="form-group">
-                                    <label for="email1_note">Note</label>
-                                    <div class="controls">
-                                        <input type="text" id="email1_note" name="email1_note" class="form-control" value="{{ email1_note }}"/>
-                                    </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inline-block">
+                            <div class="form-group medium">
+                                <label for="email1">Email</label>
+                                <input type="text" id="email1" name="email1" class="form-control" value="{{ email1 }}"/>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+                        <div class="inline-block">
+                            <div class="form-group">
+                                <label for="email1_note">Note</label>
+                                <div class="controls">
+                                    <input type="text" id="email1_note" name="email1_note" class="form-control" value="{{ email1_note }}"/>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <div class="controls">
-                                <input type="text" id="city" name="city" class="form-control" value="{{ city }}"/>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <div class="controls">
+                            <input type="text" id="city" name="city" class="form-control" value="{{ city }}"/>
                         </div>
-                        <div class="form-group">
-                            <label for="region">Region</label>
-                            <input type="text" id="region" name="region" class="form-control" value="{{ region }}"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" id="country" name="country" class="form-control" value="{{ country }}"/>
-                            <span class="help-inline"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Notes</label>
-                            <textarea id="description" name="description" class="form-control" rows="6">{{ description }}</textarea>
-                        </div>
-                    <!--</form>-->
+                    </div>
+                    <div class="form-group">
+                        <label for="region">Region</label>
+                        <input type="text" id="region" name="region" class="form-control" value="{{ region }}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" class="form-control" value="{{ country }}"/>
+                        <span class="help-inline"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Notes</label>
+                        <textarea id="description" name="description" class="form-control" rows="6">{{ description }}</textarea>
+                    </div>
                 </div>
                 <div class="inline-block well contact-image">
                     <p>
-                        <img id="picture" src="{{ picture === null ? '/pics/avatar_default.jpg' : '/pics/' + picture }}" />
+                        <img id="edit-contact-picture" src="{{ picture === null ? App.settings.defaultAvatarPath :  App.settings.picsUrl() + picture }}" />
                     </p>
 
                     <div class="instructions">To change the picture, drag a new picture from your file system onto the box above.</div>

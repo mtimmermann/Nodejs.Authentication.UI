@@ -34,7 +34,7 @@ define(function(require, exports, module) {
             $.ajax({
                 type: 'get',
                 dataType: 'json',
-                url: '/services/v1/logout'
+                url: App.settings.baseServiceUrl +'logout'
             }).done(function(/*data, textStatus, jqXHR*/) {
                 window.location.replace('/login');
             });

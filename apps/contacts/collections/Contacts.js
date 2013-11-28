@@ -7,7 +7,7 @@ define(function(require, exports, module) {
     //return Backbone.Paginator.requestPager.extend({
     return Backbone.Paginator.clientPager.extend({
 
-    	//url: 'services/v1/contacts',
+    	//url: App.settings.baseServiceUrl +'contacts',
 
 		model: Model,
 
@@ -16,7 +16,7 @@ define(function(require, exports, module) {
         paginator_core: {
             type: 'GET',
             dataType: 'json',
-            url: 'services/v1/contacts'
+            url: App.settings.baseServiceUrl +'contacts'
         },
 
         paginator_ui: {

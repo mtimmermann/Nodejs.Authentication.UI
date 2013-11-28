@@ -107,6 +107,7 @@ module.exports = function (grunt) {
                     'vendor/bootstrap/js/bootstrap.js',
                     'vendor/bootstrap/js/bootstrap-dropdown.js',
                     'vendor/moment.js',
+                    'assets/shared/js/config/AppSettings.js',
                     'assets/shared/js/base_classes/ItemViewFadeIn.js',
                     'assets/shared/js/base_classes/ModelFormValidation.js',
                     'assets/shared/js/base_classes/RegionFadeIn.js'

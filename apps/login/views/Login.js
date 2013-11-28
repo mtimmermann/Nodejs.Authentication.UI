@@ -64,7 +64,7 @@ define(function(require, exports, module) {
                 contentType: 'application/json',
                 dataType: 'json',
                 data: JSON.stringify(this.model.attributes),
-                url: '/services/v1/login'
+                url: App.settings.baseServiceUrl +'login'
             }).success(function(response/*, textStatus, jqXHR*/) {
                 if (response.IsSuccess) {
                     window.location.replace('/');
