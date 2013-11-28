@@ -4,5 +4,5 @@ var AppSettings = AppSettings || {};
  * Global app settings
  */
 AppSettings = {
-    baseServiceUrl: 'services/v1/'
+    baseServiceUrl: '/services/v1/'
 };

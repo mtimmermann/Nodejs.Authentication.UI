@@ -17,6 +17,9 @@ define(function(require, exports, module) {
         contacts: null
     };
 
+    // App settings, global.
+    App.settings = AppSettings;
+
     App.Notifications = {};
     _.extend(App.Notifications, Backbone.Events);
 
