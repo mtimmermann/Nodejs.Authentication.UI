@@ -52,6 +52,9 @@ define(function(require, exports, module) {
         validate: function () {
             var self = this;
 
+            // Hide all form alerts
+            this.$('div.alert').slideUp();
+
             //var check = this.model.isValid();
             var check = this.model.isModelValid();
 
@@ -76,28 +79,33 @@ define(function(require, exports, module) {
         save: function() {
             var self = this;
             this.model.save(null, {
-                success: function (model) {
-                    // self.render();
-                    // contacts.appRouter.navigate('contacts/edit/' + model.id, false);
-                    // contacts.utils.showAlert('Success!', 'Contact saved successfully', 'alert-success');
+                success: function(/*model, response, jqXHR*/) {
+                    self._showAlert(self.$('[data-contact-edit-alert="save-success"]'));
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
                 },
-                error: function () {
-                    // TODO:
-                    //contacts.utils.showAlert('Error', 'An error occurred while trying to save this item', 'alert-error');
+                error: function (/*model, jqXHR, errorThrown*/) {
+                    self._showAlert(self.$('[data-contact-edit-alert="error-save"]'));
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
                 }
             });
         },
 
         delete: function () {
+            var self = this;
+
+            // Hide all form alerts
+            this.$('div.alert').slideUp();
+
             this.model.destroy({
-                success: function () {
+                success: function (/*model, response, jqXHR*/) {
                     // TODO: Display bootstrap floating alert
-                    alert('Contact deleted successfully');
-                    App.appRouter.navigate('', true);
+                    self._showAlert(self.$('[data-contact-edit-alert="delete-success"]'));
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    self.$('[data-contact-edit="form-elements"]').fadeOut();
                 },
-                error: function () {
-                    // TODO:
-                    // ('Error', 'An error occurred while trying to delete this item', 'alert-error');
+                error: function (/*model, jqXHR, errorThrown*/) {
+                    self._showAlert(self.$('[data-contact-edit-alert="error-delete"]'));
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
                 }
             });
 
@@ -134,14 +142,19 @@ define(function(require, exports, module) {
                 processData: false,
                 cache: false,
                 contentType: false
-            //}).done(function () {
-            }).success(function (/*data, textStatus, jqXHR*/) {
+            }).done(function (/*response, textStatus, jqXHR*/) {
                 //console.log(file.name + " uploaded successfully");
                 callbackSuccess();
-            }).error(function (/*jqXHR, textStatus, errorThrown*/) {
-                // TODO:
-                //self.showAlert('Error!', 'An error occurred while uploading ' + file.name, 'alert-error');
+            }).fail(function (/*jqXHR, textStatus, errorThrown*/) {
+                self._showAlert(self.$('[data-contact-edit-alert="error-upload"]'));
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
             });
+        },
+
+        _showAlert: function(alertDiv) {
+            alertDiv.hide();
+            alertDiv.removeClass('hide');
+            alertDiv.slideDown();
         }
 
     });
