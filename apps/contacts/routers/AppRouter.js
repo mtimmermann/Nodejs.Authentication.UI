@@ -4,6 +4,7 @@ define(function(require, exports, module) {
        //"index" must be a method in AppRouter's controller
        appRoutes: {
            '': 'index',
+           'infiniteScroll': 'infiniteScroll',
            'contacts/:id': 'contactDetails',
            'contacts/edit/:id': 'contactEdit',
            'add': 'contactAdd',

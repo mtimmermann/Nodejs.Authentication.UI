@@ -4,6 +4,7 @@ define(function(require, exports, module) {
 		HeaderView = require('views/Header'),
 		ContactListLayout = require('views/ContactListLayout'),
 		ContactListView = require('views/ContactList'),
+        ContactListInfiniteScrollView = require('views/infinite_scroll/ContactList'),
         ContactDetailsView = require('views/ContactDetails'),
         ContactEditView = require('views/ContactEdit'),
 		PaginatorView = require('views/Paginator'),
@@ -50,6 +51,16 @@ define(function(require, exports, module) {
                 // Show contact search input region
                 contactListLayout.contactSearch.show(new SearchInputView());
         	});
+        },
+
+        infiniteScroll: function() {
+            this._headerView.setActiveLink('infinite-scroll');
+
+            this._initContactCollection();
+
+            $.when(App.collections.contacts.deferred.promise()).done(function () {
+                App.mainRegion.show(new ContactListInfiniteScrollView({'collection': App.collections.contacts}));
+            });
         },
 
         contactDetails: function(contactID) {
