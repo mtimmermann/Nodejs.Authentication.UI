@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
 
-	var ContactListLayout = require('tpl!templates/contact_list_layout.jst');
+	var ContactListLayout = require('tpl!templates/main_list/contact_list_layout.jst');
 
     // ContactListLayout class - layout view
     return Backbone.Marionette.Layout.extend({

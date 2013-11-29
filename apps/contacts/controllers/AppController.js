@@ -2,8 +2,8 @@ define(function(require, exports, module) {
 
 	var App = require('App'),
 		HeaderView = require('views/Header'),
-		ContactListLayout = require('views/ContactListLayout'),
-		ContactListView = require('views/ContactList'),
+		ContactListLayout = require('views/main_list/ContactListLayout'),
+		ContactListView = require('views/main_list/ContactList'),
         ContactListInfiniteScrollView = require('views/infinite_scroll/ContactList'),
         ContactDetailsView = require('views/ContactDetails'),
         ContactEditView = require('views/ContactEdit'),
