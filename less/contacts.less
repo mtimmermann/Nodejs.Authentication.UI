@@ -19,7 +19,25 @@
     }
 }
 
-.contact-list{
+.contact-list,
+.contact-list-infinite-scroll {
+    .thumbnail-container {
+        a.plain:link {
+            color: #333;
+            text-decoration: none;
+        }
+        a.plain:visited {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            border-color: #0088CC;
+            background-color: #EEE;
+        }
+    }
+}
+
+.contact-list {
     ul.thumbnails {
         margin-left: -40px;
         list-style: none;
@@ -38,18 +56,6 @@
             }
             a {
                 height: 300px;
-            }
-            a.plain:link {
-                color: #333;
-                text-decoration: none;
-            }
-            a.plain:visited {
-                color: #333;
-                text-decoration: none;
-            }
-            a:hover {
-                border-color: #0088CC;
-                background-color: #EEE;
             }
         }
     }
@@ -71,18 +77,6 @@
         }
         .left-region {
             margin-right: 20px;
-        }
-        a.plain:link {
-            color: #333;
-            text-decoration: none;
-        }
-        a.plain:visited {
-            color: #333;
-            text-decoration: none;
-        }
-        a:hover {
-            border-color: #0088CC;
-            background-color: #EEE;
         }
     }
 }
