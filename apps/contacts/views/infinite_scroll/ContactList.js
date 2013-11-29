@@ -29,6 +29,20 @@ define(function(require, exports, module) {
             _.each(this.collection.models, function(model) {
                 self.$el.append(ContactListItemTemplate(model.attributes));
             });
+
+            // Fadein new section effect
+            this.$('[data-contact-list-inf-scroll="item"]').fadeIn(1500);
+
+            // Fade in one at a time effect
+            // var delay = 0,
+            //     delayInc = 100;
+            // _.each(this.$('[data-contact-list-inf-scroll="item"]'), function(item) {
+            //     setTimeout(function() {
+            //         $(item).fadeIn(1500);
+            //     }, delay);
+            //     delay += delayInc;
+            // });
+
             return this;
         },
 
